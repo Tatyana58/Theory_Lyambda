@@ -26,12 +26,12 @@ public class Main3 {
 //        // Создаем объект, реализующий функциональный интерфейс Predicate,
 //        // и переопределяем его метод test() так, чтобы он возвращал true,
 //        // если возраст меньше 18
-//        Predicate<Person> predicate = new Predicate<Person>() {
-//            @Override
-//            public boolean test(Person person) {
-//                return person.getAge() < 18;
-//            }
-//        };
+        Predicate<Person> predicate = new Predicate<Person>() {
+            @Override
+            public boolean test(Person person) {
+                return person.getAge() < 18;
+            }
+        };
 
 
 //        // И передаем созданный объект предиката в параметр метода removeIf
