@@ -22,6 +22,10 @@ public class Main3 {
         people.add(person3);
         people.add(person4);
         people.add(person5);
+        System.out.println("----------Полный список-----------");
+        for (Person person : people) {
+            System.out.println(person);
+        }
 
 //        // Создаем объект, реализующий функциональный интерфейс Predicate,
 //        // и переопределяем его метод test() так, чтобы он возвращал true,
@@ -36,15 +40,15 @@ public class Main3 {
 
 //        // И передаем созданный объект предиката в параметр метода removeIf
 //        people.removeIf(predicate);
-
-
-        people.removeIf(new Predicate<Person>() {
-            @Override
-            public boolean test(Person person) {
-                return person.getAge() < 18;
-            }
-        });
-
+//
+//
+//        people.removeIf(new Predicate<Person>() {
+//            @Override
+//            public boolean test(Person person) {
+//                return person.getAge() < 18;
+//            }
+//        });
+        System.out.println("----------Из списка удалены кому < 18 лет -----------");
         // Теперь проверяем результат и видим, что из списка были
         // удалены объекты, возраст которых меньше 18
         for (Person person : people) {
@@ -61,7 +65,7 @@ public class Main3 {
                 return person.getAge();
             }
         };
-
+        System.out.println("----------Возвращает только возраст -----------");
         // Далее просто передаем вызов переопределенного метода
         // в параметр при проходе списка
         for (Person person : people) {
@@ -78,7 +82,7 @@ public class Main3 {
                 }
             }.apply(person));
         }
-
+        System.out.println("----------Увеличили возраст на 10-----------");
         UnaryOperator<Person> unaryOperator = new UnaryOperator<Person>() {
             @Override
             public Person apply(Person person) {
@@ -86,7 +90,7 @@ public class Main3 {
                 return person;
             }
         };
-        System.out.println("----------Увеличили на 10-----------");
+
         for (Person person : people) {
             System.out.println(unaryOperator.apply(person));
         }
@@ -121,13 +125,13 @@ public class Main3 {
         //Мы можем получить из списка любой объект
         //Person
         //, у которого возраст меньше 18 лет.
-        System.out.println("----------Любой объект возраст которого меньше 60 -----------");
+        System.out.println("----------Любой объект возраст которого меньше 40 -----------");
         Supplier<Person> supplier = new Supplier<Person>() {
             @Override
             public Person get() {
                 Person personNew = null;
                 for (Person person : people) {
-                    if (person.getAge() < 60) {
+                    if (person.getAge() < 40) {
                         personNew = person;
                     }
                 }
